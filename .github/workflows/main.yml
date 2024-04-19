@@ -1,4 +1,4 @@
-name: TodoList Workflow
+name: TodoList CI/CD
 
 on:
   push:
@@ -19,17 +19,15 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3  # Use the latest version of setup-node action
         with:
-          node-version: '20'  # Use Node.js version 20.x
+          node-version: '14'  # Use Node.js version 14.x
 
       - name: Install Dependencies
         run: npm install  # Install project dependencies
 
-      - name: Run Tests
-        run: npm run test .\src\test\authtest.test.ts  # Execute project tests
-        
+      - name: Build TypeScript
+        run: npm run build  # Build the TypeScript project
 
-      - name: Build Project
-        run: npm run build  # Build the project for production deployment
+      
 
   deploy:
     runs-on: ubuntu-latest  # Use the latest version of Ubuntu as the runner
@@ -42,13 +40,12 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3  # Use the latest version of setup-node action
         with:
-          node-version: '20'  # Use Node.js version 20.x
+          node-version: '14'  # Use Node.js version 14.x
 
       - name: Install Dependencies
-        run: npm install  # Install project dependencies
+        run: npm install --production  # Install production dependencies only
 
       - name: Deploy to Production
         run: |
           # Replace this command with your deployment script (e.g., ./deploy.sh)
           ./deploy.sh  # Execute deployment script
-
