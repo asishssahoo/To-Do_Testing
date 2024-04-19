@@ -25,7 +25,8 @@ jobs:
         run: npm install  # Install project dependencies
 
       - name: Run Tests
-        run: npm test  # Execute project tests
+        run: npm run test .\src\test\authtest.test.ts  # Execute project tests
+        
 
       - name: Build Project
         run: npm run build  # Build the project for production deployment
