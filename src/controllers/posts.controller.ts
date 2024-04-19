@@ -1,6 +1,7 @@
 import { Request, Response, json } from 'express';
 import { connect } from "../database";
-import { User } from "c:/Users/sahoo/Videos/To-do List/to-do_Testing/src/model/user"
+import { User } from '../model/user';
+//import { User } from "c:/Users/sahoo/Videos/To-do List/to-do_Testing/src/model/user"
 import { FieldPacket, QueryResult } from 'mysql2';
 import { ApiResponse } from './APIResponse';
 import { ErrorHandler } from './ErrorHandler';
