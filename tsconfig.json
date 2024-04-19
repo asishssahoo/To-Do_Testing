@@ -109,7 +109,7 @@
   },
   "include": [
     "src/**/*.ts",  // Include source files
-    "test/**/*.ts"  // Include test files
+    "src/test/**/*.ts"  // Include test files
   ],
   "ts-node": {
 		"require": [
