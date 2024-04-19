@@ -2,10 +2,10 @@
 import chaiHttp from 'chai-http';
 import chai from 'chai';
 import { describe, it } from 'mocha';
-import { basicAuth } from '../controllers/authMiddleware';
-import { HttpStatusCode } from "../controllers/HttpStatusCode";
+import { basicAuth } from '../src/controllers/authMiddleware';
+import { HttpStatusCode } from "../src/controllers/HttpStatusCode";
 //import app from '../controllers/app';
-import { app } from '..';
+import { app } from '../src';
 
 
 const expect = chai.expect;

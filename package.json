@@ -1,5 +1,5 @@
 {
-  "name": "expressjs-typescripttutorial",
+  "name": "expressjs-typescript-todolist",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,11 +7,13 @@
     "test": "mocha --serial --require ts-node/register --timeout 0 --exit",
     "build": "tsc --build",
     "start": "nodemon src/index.ts --exec ts-node",
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "package": "npm run build && node scripts/create-zip.js"
   },
   "author": "Asish Sahoo",
   "license": "ISC",
   "dependencies": {
+    "adm-zip": "^0.5.12",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "mysql2": "^3.9.3"
