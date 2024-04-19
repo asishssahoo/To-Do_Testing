@@ -45,6 +45,9 @@ jobs:
       - name: Install Dependencies
         run: npm install --production  # Install production dependencies only
 
+      - name: Grant Permission
+        run: chmod +x deploy.sh
+
       - name: Deploy to Production
         run: |
           # Replace this command with your deployment script (e.g., ./deploy.sh)
