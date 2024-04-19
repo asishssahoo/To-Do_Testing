@@ -1,0 +1,53 @@
+name: TodoList Workflow
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow on pushes to the 'main' branch
+  pull_request:
+    branches:
+      - main  # Trigger the workflow on pull requests targeting the 'main' branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Use the latest version of Ubuntu as the runner
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2  # Checkout the repository to access its contents
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Use Node.js version 14.x
+
+      - name: Install Dependencies
+        run: npm install  # Install project dependencies
+
+      - name: Run Tests
+        run: npm test  # Execute project tests
+
+      - name: Build Project
+        run: npm run build  # Build the project for production deployment
+
+  deploy:
+    runs-on: ubuntu-latest  # Use the latest version of Ubuntu as the runner
+    needs: build  # Ensure 'build' job completes successfully before deploying
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2  # Checkout the repository to access its contents
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Use Node.js version 14.x
+
+      - name: Install Dependencies
+        run: npm install  # Install project dependencies
+
+      - name: Deploy to Production
+        run: |
+          # Replace this command with your deployment script (e.g., ./deploy.sh)
+          ./deploy.sh  # Execute deployment script
+
